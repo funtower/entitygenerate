@@ -178,7 +178,7 @@ public class Builder {
 		}
 		content = new StringBuffer(content.substring(0,content.length()-4));
 		content.append(PubConstance.NEWLINE_CHARACTER);
-		content.append(PubConstance.QUADRI_SPACE).append("+")
+		content.append(PubConstance.TRIPLE_SPACE).append("+")
 		.append("\"]\";").append(PubConstance.NEWLINE_CHARACTER)
 		.append(PubConstance.SPACE_CHARACTER).append("}");
 		return content.toString();
@@ -276,6 +276,7 @@ public class Builder {
 	 * @param tableName
 	 * @throws IOException
 	 */
+	@SuppressWarnings("unused")
 	private static void buildConstructor(BufferedWriter bw, String tableName) throws IOException {
 		bw.append(PubConstance.SPACE_CHARACTER).append("public "+StringFormat.UnderlineToHump(tableName)+"() {");
 		bw.newLine();
