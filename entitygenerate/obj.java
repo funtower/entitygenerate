@@ -1,104 +1,296 @@
 package com.funtower.entity;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
+
 public class GuarantyBaseInfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
+    /** 押品编号 */
     private String guarantyNo;
+
+    /** 押品名称 */
     private String guarantyName;
+
+    /** 参见代码表“担保品类型代码” */
     private String collateralTypeCd;
+
+    /** 引用“参与人.参与人ID”。标识担保人。 */
     private String guarantorPartyId;
+
+    /** 客户编号 */
     private String customerNum;
+
+    /** 参见代码表“币种代码” */
     private String currencyCd;
+
+    /** 押品原值 */
     private java.math.BigDecimal bookValue;
+
+    /** null */
     private java.math.BigDecimal bookNetValue;
+
+    /** null */
     private java.math.BigDecimal marketValue;
+
+    /** null */
     private String evalValueCurrCd;
+
+    /** 外部评估价值 */
     private java.math.BigDecimal evalValue;
+
+    /** null */
     private String bankAssessedCurrCd;
+
+    /** 我行确认价值（元） */
     private java.math.BigDecimal bankAssessedValue;
+
+    /** 参见代码表“抵质押物状态代码”（现用于补录：补录状态1-待补录2-已补录） */
     private String collateralStatusCd;
+
+    /** 参见“抵质押物处置”复选指示器（现用于补录：补录数据没有主权证-1） */
     private String collateralDispose;
+
+    /** 参见复选指示器代码表“抵质押物取得途径” */
     private String acquireWayCd;
+
+    /** 是否有共有人 */
     private String commonAssetsInd;
+
+    /** 押品共有人名称 */
     private String commonOwnerName;
+
+    /** 参见代码表“担保权设定生效方式代码” */
     private String effectiveWayCd;
+
+    /** 他行是否已设定抵押 */
     private String collateralSetupInd;
+
+    /** （默认人民币） */
     private java.math.BigDecimal setGuarantyAmt;
+
+    /** 是否租赁或已设定他人使用 */
     private String rentedLicensedInd;
+
+    /** null */
     private String renterName;
+
+    /** 租赁到期日期 */
     private String leaseExpirationDate;
+
+    /** 其他说明 */
     private String otherNote;
+
+    /** 呈报日期 */
     private String submittingDate;
+
+    /** 国家 */
     private String nationalityCd;
+
+    /** 参见“行政区域代码” */
     private String provinceCd;
+
+    /** 参见“行政区域代码” */
     private String cityCd;
+
+    /** 参见“行政区域代码” */
     private String districtCd;
+
+    /** 座落地址 */
     private String streetAddress;
+
+    /** null */
     private String merchandiseType;
+
+    /** null */
     private String rightCertTypeCd;
+
+    /** null */
     private String rightCertificationNum;
+
+    /** null */
     private java.math.BigDecimal setGuarantyAmtInBank;
+
+    /** 他行已设定担保额 */
     private java.math.BigDecimal setGuarantyAmtOutBank;
+
+    /** 抵质押物分类,标准代码 */
     private String collateralCatalogCd;
+
+    /** null */
     private String collateralKeeper;
+
+    /** null */
     private String storeDate;
+
+    /** null */
     private String keepBranch;
+
+    /** null */
     private String dataCreatUserNum;
+
+    /** null */
     private String dataCreatorOrgCd;
+
+    /** null */
     private String lastUpdateUserNum;
+
+    /** null */
     private String lastUpdateOrgCd;
+
+    /** 是否可转让 */
     private String takeoverInd;
+
+    /** null */
     private String allPledgeInd;
+
+    /** null */
     private String forbidCirculateInd;
+
+    /** null */
     private String nationalisationInd;
+
+    /** 所有权是否有争议 */
     private String propertyDisputedInd;
+
+    /** 是否被查封、监管、扣押 */
     private String invalidInd;
+
+    /** 是否存在瑕疵 */
     private String blemishInd;
+
+    /** 瑕疵情况 */
     private String blemishInfo;
+
+    /** 移交占有时间 */
     private String handoverDate;
+
+    /** 保管特殊要求 */
     private String keepSpecialReq;
+
+    /** 见“抵质押品优先受偿权代码” */
     private String creditorPriority;
+
+    /** 次顺位债权时使用 */
     private java.math.BigDecimal preCreditorAmt;
+
+    /** 见“机构代码” */
     private String belongOrgCd;
+
+    /** 见“押品信息状态代码” */
     private String collateralInfoStatusCd;
+
+    /** 创建日期 */
     private String collateralCreateDate;
+
+    /** 参见代码表“抵质押物评估类型代码” */
     private String evalTypeCd;
+
+    /** 权证是否完整 */
     private String indCertiFull;
+
+    /** 权证不完事的原因 */
     private String certiNotFullCause;
+
+    /** 系统更新时间 */
     private String sysUpdateTime;
+
+    /** 月租金 */
     private java.math.BigDecimal monthRenk;
+
+    /** 客户名称：抵质押人 */
     private String customerName;
+
+    /** 是否为我行认可押品 */
     private String isConfirmed;
+
+    /** 是否暂存 */
     private String isTmpSave;
+
+    /** 登记人 */
     private String manageUser;
+
+    /** 是否走追加流程（0-不走追加流程，1-走追加流程） */
     private String isAddProcess;
+
+    /** 押品所属条线编号 */
     private String belongStriplineNo;
+
+    /** 登记人所属机构 */
     private String manageOrgCd;
+
+    /** 权证预计办妥日期 */
     private String certiPlanCompletedDate;
+
+    /** 押品性质 */
     private String guarantyTypeCd;
+
+    /** 是否属于主申请人 */
     private String isBelongMainApplicant;
+
+    /** 系统标识（对公信贷系统0，个贷系统1） */
     private String systemSign;
+
+    /** 借款人 */
     private String loanUser;
+
+    /** 押品抵质押率：区别业务抵质押率（我行确认价/nvl(外部评估,1)） */
     private java.math.BigDecimal guarantyPledgeRate;
+
+    /** 最高抵质押金额（元） */
     private java.math.BigDecimal highestGuarantyValue;
+
+    /** 抵质押折扣率 */
     private java.math.BigDecimal guarantyDiscountRate;
+
+    /** 抵质押人证件类型 */
     private String certType;
+
+    /** 抵质押人证件号码 */
     private String certCode;
+
+    /** 是否共享权证押品 */
     private String isShare;
+
+    /** 共享权证押品编号 */
     private String shareGuarantyNo;
+
+    /** 核保人1 */
     private String underwriter1;
+
+    /** 核保人2 */
     private String underwriter2;
+
+    /** 抵质押物法律有效性 */
     private String limitsIegalvalidity;
+
+    /** 抵质押物保险情况 */
     private String limitsInsurance;
+
+    /** 抵质押物价值波动性 */
     private String limitsValuevolatility;
+
+    /** 抵质押物查封便利性 */
     private String limitsSeizureconvenience;
+
+    /** 抵质押物变现能力 */
     private String limitsCashability;
+
+    /** 抵质押物与借款人相关性 */
     private String limitsBorrower;
+
+    /** 客户经理联系电话 */
     private String managerPhone;
+
+    /** 关联续贷业务标识 */
     private String isRelation;
+
+    /** 关联续贷押品编号 */
     private String oldGuarantyNo;
+
+    /** 数据来源 */
     private String dataSource;
+
 
     public GuarantyBaseInfo() {
 
@@ -965,6 +1157,7 @@ public class GuarantyBaseInfo implements Serializable{
         result = prime * result + ((dataSource == null) ? 0 : dataSource.hashCode());
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -1448,4 +1641,6 @@ public class GuarantyBaseInfo implements Serializable{
             return false;
         return true;
     }
+
+    @Override    public String toString() {        return "GuarantyBaseInfo["+"guarantyNo="+guarantyNo,                +"guarantyName="+guarantyName,+"collateralTypeCd="+collateralTypeCd,+"guarantorPartyId="+guarantorPartyId,                +"customerNum="+customerNum,+"currencyCd="+currencyCd,+"bookValue="+bookValue,                +"bookNetValue="+bookNetValue,+"marketValue="+marketValue,+"evalValueCurrCd="+evalValueCurrCd,                +"evalValue="+evalValue,+"bankAssessedCurrCd="+bankAssessedCurrCd,                +"bankAssessedValue="+bankAssessedValue,+"collateralStatusCd="+collateralStatusCd,                +"collateralDispose="+collateralDispose,+"acquireWayCd="+acquireWayCd,                +"commonAssetsInd="+commonAssetsInd,+"commonOwnerName="+commonOwnerName,+"effectiveWayCd="+effectiveWayCd,                +"collateralSetupInd="+collateralSetupInd,+"setGuarantyAmt="+setGuarantyAmt,                +"rentedLicensedInd="+rentedLicensedInd,+"renterName="+renterName,                +"leaseExpirationDate="+leaseExpirationDate,+"otherNote="+otherNote,+"submittingDate="+submittingDate,                +"nationalityCd="+nationalityCd,+"provinceCd="+provinceCd,+"cityCd="+cityCd,                +"districtCd="+districtCd,+"streetAddress="+streetAddress,+"merchandiseType="+merchandiseType,                +"rightCertTypeCd="+rightCertTypeCd,+"rightCertificationNum="+rightCertificationNum,                +"setGuarantyAmtInBank="+setGuarantyAmtInBank,+"setGuarantyAmtOutBank="+setGuarantyAmtOutBank,                +"collateralCatalogCd="+collateralCatalogCd,+"collateralKeeper="+collateralKeeper,                +"storeDate="+storeDate,+"keepBranch="+keepBranch,                +"dataCreatUserNum="+dataCreatUserNum,+"dataCreatorOrgCd="+dataCreatorOrgCd,+"lastUpdateUserNum="+lastUpdateUserNum,                +"lastUpdateOrgCd="+lastUpdateOrgCd,+"takeoverInd="+takeoverInd,                +"allPledgeInd="+allPledgeInd,+"forbidCirculateInd="+forbidCirculateInd,                +"nationalisationInd="+nationalisationInd,+"propertyDisputedInd="+propertyDisputedInd,                +"invalidInd="+invalidInd,+"blemishInd="+blemishInd,+"blemishInfo="+blemishInfo,                +"handoverDate="+handoverDate,+"keepSpecialReq="+keepSpecialReq,+"creditorPriority="+creditorPriority,                +"preCreditorAmt="+preCreditorAmt,+"belongOrgCd="+belongOrgCd,                +"collateralInfoStatusCd="+collateralInfoStatusCd,+"collateralCreateDate="+collateralCreateDate,                +"evalTypeCd="+evalTypeCd,+"indCertiFull="+indCertiFull,+"certiNotFullCause="+certiNotFullCause,                +"sysUpdateTime="+sysUpdateTime,+"monthRenk="+monthRenk,                +"customerName="+customerName,+"isConfirmed="+isConfirmed,+"isTmpSave="+isTmpSave,                +"manageUser="+manageUser,+"isAddProcess="+isAddProcess,+"belongStriplineNo="+belongStriplineNo,                +"manageOrgCd="+manageOrgCd,+"certiPlanCompletedDate="+certiPlanCompletedDate,                +"guarantyTypeCd="+guarantyTypeCd,+"isBelongMainApplicant="+isBelongMainApplicant,                +"systemSign="+systemSign,+"loanUser="+loanUser,+"guarantyPledgeRate="+guarantyPledgeRate,                +"highestGuarantyValue="+highestGuarantyValue,+"guarantyDiscountRate="+guarantyDiscountRate,                +"certType="+certType,+"certCode="+certCode,+"isShare="+isShare,                +"shareGuarantyNo="+shareGuarantyNo,+"underwriter1="+underwriter1,+"underwriter2="+underwriter2,                +"limitsIegalvalidity="+limitsIegalvalidity,+"limitsInsurance="+limitsInsurance,                +"limitsValuevolatility="+limitsValuevolatility,+"limitsSeizureconvenience="+limitsSeizureconvenience,                +"limitsCashability="+limitsCashability,+"limitsBorrower="+limitsBorrower,                +"managerPhone="+managerPhone,+"isRelation="+isRelation,+"oldGuarantyNo="+oldGuarantyNo,                +"dataSource="+dataSource,                +"]";    }
 }

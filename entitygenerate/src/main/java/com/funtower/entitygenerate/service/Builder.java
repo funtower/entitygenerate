@@ -21,6 +21,7 @@ public class Builder {
 		try {
 			bw.append("package com.funtower.entity;");
 			bw.newLine();
+			bw.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,8 +52,10 @@ public class Builder {
 			bw.newLine();
 			if(dataTypes.contains("NUMBER")){
 				bw.append("import java.math.BigDecimal;");
+				bw.newLine();
 			}else if(dataTypes.contains("Date")){
 				bw.append("import java.sql.Date;");
+				bw.newLine();
 			}
 			bw.newLine();
 		} catch (IOException e) {
@@ -60,6 +63,12 @@ public class Builder {
 		}
 	}
 	
+	/**
+	 * 构建重写hashcode方法
+	 * @param bw
+	 * @param columnInfoFromDBs
+	 * @throws IOException
+	 */
 	public static void overrideHashCodeFunction(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
 		bw.append(PubConstance.SPACE_CHARACTER).append("@Override");
 		bw.newLine();
@@ -92,9 +101,9 @@ public class Builder {
 	public static String buildHashCode(String classType,String columnName) {
 		String returnStr = "";
 		switch (classType) {
-		case "java.math.BigDecimal":
+		case "BigDecimal":
 		case "String":
-		case "java.sql.Date":
+		case "Date":
 			returnStr = "(("+columnName+" == null) ? 0 : "+columnName+".hashCode())";
 			break;
 		default:
@@ -103,6 +112,13 @@ public class Builder {
 		return returnStr;
 	}
 	
+	/**
+	 * 构建equals方法
+	 * @param bw
+	 * @param columnInfoFromDBs
+	 * @param tableName
+	 * @throws IOException
+	 */
 	public static void buildEqualsFunction(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs , String tableName) throws IOException {
 		bw.append(PubConstance.SPACE_CHARACTER).append("@Override");
 		bw.newLine();
@@ -138,6 +154,30 @@ public class Builder {
 		bw.newLine();
 	}
 	
+	public static String buildToStringFunction(String tableName , List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
+		StringBuffer content = new StringBuffer();
+		content.append(PubConstance.SPACE_CHARACTER).append("@Override").append(PubConstance.NEWLINE_CHARACTER);
+		content.append(PubConstance.SPACE_CHARACTER).append("public String toString() {").append(PubConstance.NEWLINE_CHARACTER);
+		content.append(PubConstance.DOUBLE_SPACE).append("return \"");
+		content.append(StringFormat.UnderlineToHump(tableName)).append("[\"");
+		int count = 1;
+		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
+			if((content.length()/(count*100.0)) > 1){
+				content.append(PubConstance.NEWLINE_CHARACTER).append(PubConstance.DOUBLE_SPACE)
+				.append(PubConstance.DOUBLE_SPACE);
+				count++;
+			}
+			content.append("+").append("\"").append(StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())).append("=\"")
+			.append("+").append(StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())).append("+\",\"");
+		}
+		content = new StringBuffer(content.substring(0,content.length()-4));
+		content.append(PubConstance.NEWLINE_CHARACTER);
+		content.append(PubConstance.DOUBLE_SPACE).append(PubConstance.DOUBLE_SPACE).append("+")
+		.append("\"]\";").append(PubConstance.NEWLINE_CHARACTER)
+		.append(PubConstance.SPACE_CHARACTER).append("}");
+		return content.toString();
+	}
+	
 	/**
 	 * 构建类主体代码
 	 * @param bw
@@ -154,6 +194,9 @@ public class Builder {
 			buildFunctions(bw,tableName, columnInfoFromDBs);
 			overrideHashCodeFunction(bw, columnInfoFromDBs);
 			buildEqualsFunction(bw, columnInfoFromDBs, tableName);
+			bw.newLine();
+			bw.append(buildToStringFunction(tableName, columnInfoFromDBs));
+			bw.newLine();
 			bw.append("}");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -168,7 +211,6 @@ public class Builder {
 	 */
 	private static void buildFunctions(BufferedWriter bw , String tableName ,List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
 		buildConstructor(bw, tableName);
-//		buildGetterAndSetter();
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
 			String _column_Hump = StringFormat.UnderlineToHump(columnInfoFromDB.getColumnName());
 			String _column_Small_Hump = StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName());
@@ -245,9 +287,12 @@ public class Builder {
 	 */
 	private static void buildAttributes(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
+			bw.append(PubConstance.SPACE_CHARACTER).append("/** "+columnInfoFromDB.getComments()+" */");
+			bw.newLine();
 			bw.append(PubConstance.SPACE_CHARACTER).append("private").append(" ")
 			.append(PubConstance.DATA_TYPE_MAPPING_RELATION.get(columnInfoFromDB.getDataType())).append(" ")
 			.append(StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())).append(";");
+			bw.newLine();
 			bw.newLine();
 		}
 		bw.newLine();

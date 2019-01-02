@@ -326,11 +326,13 @@ public class HashCodeTest implements Serializable{
 
 	@Override
 	public String toString() {
-		return "HashCodeTest [int0=" + int0 + ", double0=" + double0 + ", float0=" + float0 + ", byte0=" + byte0
+		return "HashCodeTest ["
+				+ "int0=" + int0 + ", double0=" + double0 + ", float0=" + float0 + ", byte0=" + byte0
 				+ ", short0=" + short0 + ", char0=" + char0 + ", long0=" + long0 + ", boolean0=" + boolean0
 				+ ", Integer0=" + Integer0 + ", Double00=" + Double00 + ", Float00=" + Float00 + ", Byte00=" + Byte00
 				+ ", Short00=" + Short00 + ", Character0=" + Character0 + ", Long00=" + Long00 + ", Boolean00="
-				+ Boolean00 + ", String0=" + String0 + ", BigDecimal0=" + BigDecimal0 + ", date=" + date + "]";
+				+ Boolean00 + ", String0=" + String0 + ", BigDecimal0=" + BigDecimal0 + ", date=" + date 
+				+ "]";
 	}
 	
 }

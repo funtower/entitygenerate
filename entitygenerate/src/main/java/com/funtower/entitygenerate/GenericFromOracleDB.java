@@ -47,7 +47,7 @@ public class GenericFromOracleDB {
 			columnInfoFromDBs.add(columnInfoFromDB);
 		}
 		
-		BufferedWriter bw = new BufferedWriter(new FileWriter("obj.java"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("GuarantyBaseInfo.java"));
 		Builder.packageStatement(bw);
 		Builder.importClass(bw, dataTypes);
 		Builder.buildClassBody(bw, tableName, columnInfoFromDBs);
