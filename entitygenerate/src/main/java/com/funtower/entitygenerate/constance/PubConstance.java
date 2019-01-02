@@ -11,6 +11,7 @@ public class PubConstance {
 	public static final String SPACE_CHARACTER = "    ";//缩进符（四个空格）
 	public static final String DOUBLE_SPACE = "        ";//两个缩进符（四个空格）
 	public static final String TRIPLE_SPACE = "            ";//三个缩进符（四个空格）
+	public static final String QUADRI_SPACE = "                ";//两个缩进符（四个空格）
 	public static final String OVERRIDE_ANNOTATION = "@Override";//重写注解标识
 	static{
 		DATA_TYPE_MAPPING_RELATION.put("VARCHAR2", "String");

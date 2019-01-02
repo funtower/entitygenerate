@@ -74,18 +74,18 @@ public class Builder {
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("public int hashCode() {");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("final int prime = 31;");
+		bw.append(PubConstance.DOUBLE_SPACE).append("final int prime = 31;");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("int result = 1;");
+		bw.append(PubConstance.DOUBLE_SPACE).append("int result = 1;");
 		bw.newLine();
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
-			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER)
+			bw.append(PubConstance.DOUBLE_SPACE)
 			.append("result = prime * result + " + buildHashCode(
 					PubConstance.DATA_TYPE_MAPPING_RELATION
 						.get(columnInfoFromDB.getDataType()), StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName()))+";");
 			bw.newLine();
 		}
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return result;");
+		bw.append(PubConstance.DOUBLE_SPACE).append("return result;");
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("}");
 		bw.newLine();
@@ -124,36 +124,43 @@ public class Builder {
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("public boolean equals(Object obj) {");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if (this == obj)");
+		bw.append(PubConstance.DOUBLE_SPACE).append("if (this == obj)");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return true;");
+		bw.append(PubConstance.TRIPLE_SPACE).append("return true;");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if (obj == null)");
+		bw.append(PubConstance.DOUBLE_SPACE).append("if (obj == null)");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return false;");
+		bw.append(PubConstance.TRIPLE_SPACE).append("return false;");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if (getClass() != obj.getClass())");
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return false;");
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(StringFormat.UnderlineToHump(tableName)).append(" ").append("other").append(" = ")
+		bw.append(PubConstance.DOUBLE_SPACE).append("if (getClass() != obj.getClass())");
+		bw.append(PubConstance.TRIPLE_SPACE).append("return false;");
+		bw.append(PubConstance.DOUBLE_SPACE).append(StringFormat.UnderlineToHump(tableName)).append(" ").append("other").append(" = ")
 		.append("(").append(StringFormat.UnderlineToHump(tableName)).append(")").append("obj;");
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
-			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if ("+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+" == null) {");
+			bw.append(PubConstance.DOUBLE_SPACE).append("if ("+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+" == null) {");
 			bw.newLine();
-			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if (other."+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+" != null)");
+			bw.append(PubConstance.TRIPLE_SPACE).append("if (other."+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+" != null)");
 			bw.newLine();
-			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return false;");
+			bw.append(PubConstance.QUADRI_SPACE).append("return false;");
 			bw.newLine();
-			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("} else if (!"+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+".equals(other."+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+"))");
+			bw.append(PubConstance.DOUBLE_SPACE).append("} else if (!"+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+".equals(other."+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+"))");
 			bw.newLine();
-			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return false;");
+			bw.append(PubConstance.TRIPLE_SPACE).append("return false;");
 			bw.newLine();
 		}
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return true;");
+		bw.append(PubConstance.DOUBLE_SPACE).append("return true;");
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("}");
 		bw.newLine();
 	}
 	
+	/**
+	 * 构建toString方法
+	 * @param tableName
+	 * @param columnInfoFromDBs
+	 * @return
+	 * @throws IOException
+	 */
 	public static String buildToStringFunction(String tableName , List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
 		StringBuffer content = new StringBuffer();
 		content.append(PubConstance.SPACE_CHARACTER).append("@Override").append(PubConstance.NEWLINE_CHARACTER);
@@ -163,8 +170,7 @@ public class Builder {
 		int count = 1;
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
 			if((content.length()/(count*100.0)) > 1){
-				content.append(PubConstance.NEWLINE_CHARACTER).append(PubConstance.DOUBLE_SPACE)
-				.append(PubConstance.DOUBLE_SPACE);
+				content.append(PubConstance.NEWLINE_CHARACTER).append(PubConstance.TRIPLE_SPACE);
 				count++;
 			}
 			content.append("+").append("\"").append(StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())).append("=\"")
@@ -172,7 +178,7 @@ public class Builder {
 		}
 		content = new StringBuffer(content.substring(0,content.length()-4));
 		content.append(PubConstance.NEWLINE_CHARACTER);
-		content.append(PubConstance.DOUBLE_SPACE).append(PubConstance.DOUBLE_SPACE).append("+")
+		content.append(PubConstance.QUADRI_SPACE).append("+")
 		.append("\"]\";").append(PubConstance.NEWLINE_CHARACTER)
 		.append(PubConstance.SPACE_CHARACTER).append("}");
 		return content.toString();
@@ -210,7 +216,7 @@ public class Builder {
 	 * @throws IOException 
 	 */
 	private static void buildFunctions(BufferedWriter bw , String tableName ,List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
-		buildConstructor(bw, tableName);
+//		buildConstructor(bw, tableName);//构造方法可不写
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
 			String _column_Hump = StringFormat.UnderlineToHump(columnInfoFromDB.getColumnName());
 			String _column_Small_Hump = StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName());
@@ -236,7 +242,7 @@ public class Builder {
 		.append(_column_Small_Hump)
 		.append(") {");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("this.").append(_column_Small_Hump).append(" ")
+		bw.append(PubConstance.DOUBLE_SPACE).append("this.").append(_column_Small_Hump).append(" ")
 		.append("=").append(" ").append(_column_Small_Hump).append(";");
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("}");
@@ -258,7 +264,7 @@ public class Builder {
 		.append(_column_Hump)
 		.append("() {");
 		bw.newLine();
-		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return ").append(_column_Small_Hump).append(";");
+		bw.append(PubConstance.DOUBLE_SPACE).append("return ").append(_column_Small_Hump).append(";");
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("}");
 		bw.newLine();
