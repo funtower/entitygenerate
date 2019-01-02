@@ -48,6 +48,8 @@ public class GenericFromOracleDB {
 		}
 		
 		BufferedWriter bw = new BufferedWriter(new FileWriter("obj.java"));
+		Builder.packageStatement(bw);
+		Builder.importClass(bw, dataTypes);
 		Builder.buildClassBody(bw, tableName, columnInfoFromDBs);
 		bw.close();
 		conn.close();

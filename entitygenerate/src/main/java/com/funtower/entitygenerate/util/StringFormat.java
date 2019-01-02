@@ -11,12 +11,8 @@ public class StringFormat {
         StringBuilder result=new StringBuilder();
         String a[]=para.split("_");
         for(String s:a){
-            if(result.length()==0){
-                result.append(s.toUpperCase());
-            }else{
-                result.append(s.substring(0, 1).toUpperCase());
-                result.append(s.substring(1).toLowerCase());
-            }
+            result.append(s.substring(0, 1).toUpperCase());
+            result.append(s.substring(1).toLowerCase());
         }
         return result.toString();
     }
