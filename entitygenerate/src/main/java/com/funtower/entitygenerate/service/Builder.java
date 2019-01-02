@@ -49,7 +49,7 @@ public class Builder {
 		try {
 			bw.append("import java.io.Serializable;");
 			bw.newLine();
-			if(dataTypes.contains("BigDecimal")){
+			if(dataTypes.contains("NUMBER")){
 				bw.append("import java.math.BigDecimal;");
 			}else if(dataTypes.contains("Date")){
 				bw.append("import java.sql.Date;");
@@ -153,6 +153,7 @@ public class Builder {
 		bw.newLine();
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("}");
+		bw.newLine();
 		bw.newLine();
 	}
 

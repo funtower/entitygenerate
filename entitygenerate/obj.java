@@ -1,7 +1,7 @@
 package com.funtower.entity;
 import java.io.Serializable;
-
-    public class GuarantyBaseInfo implements Serializable{
+import java.math.BigDecimal;
+public class GuarantyBaseInfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private String guarantyNo;
@@ -100,7 +100,7 @@ import java.io.Serializable;
     private String oldGuarantyNo;
     private String dataSource;
 
-public GuarantyBaseInfo() {
+    public GuarantyBaseInfo() {
 
     }
     public String getGuarantyNo() {
