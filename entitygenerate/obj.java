@@ -100,7 +100,7 @@ import java.io.Serializable;
     private String oldGuarantyNo;
     private String dataSource;
 
-    public GuarantyBaseInfo() {
+public GuarantyBaseInfo() {
 
     }
     public String getGuarantyNo() {

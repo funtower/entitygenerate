@@ -68,7 +68,7 @@ public class Builder {
 	 */
     public static void buildClassBody(BufferedWriter bw , String tableName , List<ColumnInfoFromDB> columnInfoFromDBs) {
 		try {
-			bw.append(PubConstance.SPACE_CHARACTER).append("public class "+StringFormat.UnderlineToHump(tableName)+" implements Serializable{");
+			bw.append("public class "+StringFormat.UnderlineToHump(tableName)+" implements Serializable{");
 			bw.newLine();
 			serializableStatement(bw);
 			bw.newLine();
@@ -149,7 +149,7 @@ public class Builder {
 	 * @throws IOException
 	 */
 	private static void buildConstructor(BufferedWriter bw, String tableName) throws IOException {
-		bw.append("public "+StringFormat.UnderlineToHump(tableName)+"() {");
+		bw.append(PubConstance.SPACE_CHARACTER).append("public "+StringFormat.UnderlineToHump(tableName)+"() {");
 		bw.newLine();
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("}");
