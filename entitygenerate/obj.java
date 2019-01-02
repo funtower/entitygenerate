@@ -99,671 +99,768 @@ import java.io.Serializable;
     private String isRelation;
     private String oldGuarantyNo;
     private String dataSource;
+
     public GuarantyBaseInfo() {
+
     }
     public String getGuarantyNo() {
-        return GuarantyNo;
+        return guarantyNo;
     }
 
     public void setGuarantyNo(String guarantyNo) {
         this.guarantyNo = guarantyNo;
     }
+
     public String getGuarantyName() {
-        return GuarantyName;
+        return guarantyName;
     }
 
     public void setGuarantyName(String guarantyName) {
         this.guarantyName = guarantyName;
     }
+
     public String getCollateralTypeCd() {
-        return CollateralTypeCd;
+        return collateralTypeCd;
     }
 
     public void setCollateralTypeCd(String collateralTypeCd) {
         this.collateralTypeCd = collateralTypeCd;
     }
+
     public String getGuarantorPartyId() {
-        return GuarantorPartyId;
+        return guarantorPartyId;
     }
 
     public void setGuarantorPartyId(String guarantorPartyId) {
         this.guarantorPartyId = guarantorPartyId;
     }
+
     public String getCustomerNum() {
-        return CustomerNum;
+        return customerNum;
     }
 
     public void setCustomerNum(String customerNum) {
         this.customerNum = customerNum;
     }
+
     public String getCurrencyCd() {
-        return CurrencyCd;
+        return currencyCd;
     }
 
     public void setCurrencyCd(String currencyCd) {
         this.currencyCd = currencyCd;
     }
+
     public java.math.BigDecimal getBookValue() {
-        return BookValue;
+        return bookValue;
     }
 
     public void setBookValue(java.math.BigDecimal bookValue) {
         this.bookValue = bookValue;
     }
+
     public java.math.BigDecimal getBookNetValue() {
-        return BookNetValue;
+        return bookNetValue;
     }
 
     public void setBookNetValue(java.math.BigDecimal bookNetValue) {
         this.bookNetValue = bookNetValue;
     }
+
     public java.math.BigDecimal getMarketValue() {
-        return MarketValue;
+        return marketValue;
     }
 
     public void setMarketValue(java.math.BigDecimal marketValue) {
         this.marketValue = marketValue;
     }
+
     public String getEvalValueCurrCd() {
-        return EvalValueCurrCd;
+        return evalValueCurrCd;
     }
 
     public void setEvalValueCurrCd(String evalValueCurrCd) {
         this.evalValueCurrCd = evalValueCurrCd;
     }
+
     public java.math.BigDecimal getEvalValue() {
-        return EvalValue;
+        return evalValue;
     }
 
     public void setEvalValue(java.math.BigDecimal evalValue) {
         this.evalValue = evalValue;
     }
+
     public String getBankAssessedCurrCd() {
-        return BankAssessedCurrCd;
+        return bankAssessedCurrCd;
     }
 
     public void setBankAssessedCurrCd(String bankAssessedCurrCd) {
         this.bankAssessedCurrCd = bankAssessedCurrCd;
     }
+
     public java.math.BigDecimal getBankAssessedValue() {
-        return BankAssessedValue;
+        return bankAssessedValue;
     }
 
     public void setBankAssessedValue(java.math.BigDecimal bankAssessedValue) {
         this.bankAssessedValue = bankAssessedValue;
     }
+
     public String getCollateralStatusCd() {
-        return CollateralStatusCd;
+        return collateralStatusCd;
     }
 
     public void setCollateralStatusCd(String collateralStatusCd) {
         this.collateralStatusCd = collateralStatusCd;
     }
+
     public String getCollateralDispose() {
-        return CollateralDispose;
+        return collateralDispose;
     }
 
     public void setCollateralDispose(String collateralDispose) {
         this.collateralDispose = collateralDispose;
     }
+
     public String getAcquireWayCd() {
-        return AcquireWayCd;
+        return acquireWayCd;
     }
 
     public void setAcquireWayCd(String acquireWayCd) {
         this.acquireWayCd = acquireWayCd;
     }
+
     public String getCommonAssetsInd() {
-        return CommonAssetsInd;
+        return commonAssetsInd;
     }
 
     public void setCommonAssetsInd(String commonAssetsInd) {
         this.commonAssetsInd = commonAssetsInd;
     }
+
     public String getCommonOwnerName() {
-        return CommonOwnerName;
+        return commonOwnerName;
     }
 
     public void setCommonOwnerName(String commonOwnerName) {
         this.commonOwnerName = commonOwnerName;
     }
+
     public String getEffectiveWayCd() {
-        return EffectiveWayCd;
+        return effectiveWayCd;
     }
 
     public void setEffectiveWayCd(String effectiveWayCd) {
         this.effectiveWayCd = effectiveWayCd;
     }
+
     public String getCollateralSetupInd() {
-        return CollateralSetupInd;
+        return collateralSetupInd;
     }
 
     public void setCollateralSetupInd(String collateralSetupInd) {
         this.collateralSetupInd = collateralSetupInd;
     }
+
     public java.math.BigDecimal getSetGuarantyAmt() {
-        return SetGuarantyAmt;
+        return setGuarantyAmt;
     }
 
     public void setSetGuarantyAmt(java.math.BigDecimal setGuarantyAmt) {
         this.setGuarantyAmt = setGuarantyAmt;
     }
+
     public String getRentedLicensedInd() {
-        return RentedLicensedInd;
+        return rentedLicensedInd;
     }
 
     public void setRentedLicensedInd(String rentedLicensedInd) {
         this.rentedLicensedInd = rentedLicensedInd;
     }
+
     public String getRenterName() {
-        return RenterName;
+        return renterName;
     }
 
     public void setRenterName(String renterName) {
         this.renterName = renterName;
     }
+
     public String getLeaseExpirationDate() {
-        return LeaseExpirationDate;
+        return leaseExpirationDate;
     }
 
     public void setLeaseExpirationDate(String leaseExpirationDate) {
         this.leaseExpirationDate = leaseExpirationDate;
     }
+
     public String getOtherNote() {
-        return OtherNote;
+        return otherNote;
     }
 
     public void setOtherNote(String otherNote) {
         this.otherNote = otherNote;
     }
+
     public String getSubmittingDate() {
-        return SubmittingDate;
+        return submittingDate;
     }
 
     public void setSubmittingDate(String submittingDate) {
         this.submittingDate = submittingDate;
     }
+
     public String getNationalityCd() {
-        return NationalityCd;
+        return nationalityCd;
     }
 
     public void setNationalityCd(String nationalityCd) {
         this.nationalityCd = nationalityCd;
     }
+
     public String getProvinceCd() {
-        return ProvinceCd;
+        return provinceCd;
     }
 
     public void setProvinceCd(String provinceCd) {
         this.provinceCd = provinceCd;
     }
+
     public String getCityCd() {
-        return CityCd;
+        return cityCd;
     }
 
     public void setCityCd(String cityCd) {
         this.cityCd = cityCd;
     }
+
     public String getDistrictCd() {
-        return DistrictCd;
+        return districtCd;
     }
 
     public void setDistrictCd(String districtCd) {
         this.districtCd = districtCd;
     }
+
     public String getStreetAddress() {
-        return StreetAddress;
+        return streetAddress;
     }
 
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
     }
+
     public String getMerchandiseType() {
-        return MerchandiseType;
+        return merchandiseType;
     }
 
     public void setMerchandiseType(String merchandiseType) {
         this.merchandiseType = merchandiseType;
     }
+
     public String getRightCertTypeCd() {
-        return RightCertTypeCd;
+        return rightCertTypeCd;
     }
 
     public void setRightCertTypeCd(String rightCertTypeCd) {
         this.rightCertTypeCd = rightCertTypeCd;
     }
+
     public String getRightCertificationNum() {
-        return RightCertificationNum;
+        return rightCertificationNum;
     }
 
     public void setRightCertificationNum(String rightCertificationNum) {
         this.rightCertificationNum = rightCertificationNum;
     }
+
     public java.math.BigDecimal getSetGuarantyAmtInBank() {
-        return SetGuarantyAmtInBank;
+        return setGuarantyAmtInBank;
     }
 
     public void setSetGuarantyAmtInBank(java.math.BigDecimal setGuarantyAmtInBank) {
         this.setGuarantyAmtInBank = setGuarantyAmtInBank;
     }
+
     public java.math.BigDecimal getSetGuarantyAmtOutBank() {
-        return SetGuarantyAmtOutBank;
+        return setGuarantyAmtOutBank;
     }
 
     public void setSetGuarantyAmtOutBank(java.math.BigDecimal setGuarantyAmtOutBank) {
         this.setGuarantyAmtOutBank = setGuarantyAmtOutBank;
     }
+
     public String getCollateralCatalogCd() {
-        return CollateralCatalogCd;
+        return collateralCatalogCd;
     }
 
     public void setCollateralCatalogCd(String collateralCatalogCd) {
         this.collateralCatalogCd = collateralCatalogCd;
     }
+
     public String getCollateralKeeper() {
-        return CollateralKeeper;
+        return collateralKeeper;
     }
 
     public void setCollateralKeeper(String collateralKeeper) {
         this.collateralKeeper = collateralKeeper;
     }
+
     public String getStoreDate() {
-        return StoreDate;
+        return storeDate;
     }
 
     public void setStoreDate(String storeDate) {
         this.storeDate = storeDate;
     }
+
     public String getKeepBranch() {
-        return KeepBranch;
+        return keepBranch;
     }
 
     public void setKeepBranch(String keepBranch) {
         this.keepBranch = keepBranch;
     }
+
     public String getDataCreatUserNum() {
-        return DataCreatUserNum;
+        return dataCreatUserNum;
     }
 
     public void setDataCreatUserNum(String dataCreatUserNum) {
         this.dataCreatUserNum = dataCreatUserNum;
     }
+
     public String getDataCreatorOrgCd() {
-        return DataCreatorOrgCd;
+        return dataCreatorOrgCd;
     }
 
     public void setDataCreatorOrgCd(String dataCreatorOrgCd) {
         this.dataCreatorOrgCd = dataCreatorOrgCd;
     }
+
     public String getLastUpdateUserNum() {
-        return LastUpdateUserNum;
+        return lastUpdateUserNum;
     }
 
     public void setLastUpdateUserNum(String lastUpdateUserNum) {
         this.lastUpdateUserNum = lastUpdateUserNum;
     }
+
     public String getLastUpdateOrgCd() {
-        return LastUpdateOrgCd;
+        return lastUpdateOrgCd;
     }
 
     public void setLastUpdateOrgCd(String lastUpdateOrgCd) {
         this.lastUpdateOrgCd = lastUpdateOrgCd;
     }
+
     public String getTakeoverInd() {
-        return TakeoverInd;
+        return takeoverInd;
     }
 
     public void setTakeoverInd(String takeoverInd) {
         this.takeoverInd = takeoverInd;
     }
+
     public String getAllPledgeInd() {
-        return AllPledgeInd;
+        return allPledgeInd;
     }
 
     public void setAllPledgeInd(String allPledgeInd) {
         this.allPledgeInd = allPledgeInd;
     }
+
     public String getForbidCirculateInd() {
-        return ForbidCirculateInd;
+        return forbidCirculateInd;
     }
 
     public void setForbidCirculateInd(String forbidCirculateInd) {
         this.forbidCirculateInd = forbidCirculateInd;
     }
+
     public String getNationalisationInd() {
-        return NationalisationInd;
+        return nationalisationInd;
     }
 
     public void setNationalisationInd(String nationalisationInd) {
         this.nationalisationInd = nationalisationInd;
     }
+
     public String getPropertyDisputedInd() {
-        return PropertyDisputedInd;
+        return propertyDisputedInd;
     }
 
     public void setPropertyDisputedInd(String propertyDisputedInd) {
         this.propertyDisputedInd = propertyDisputedInd;
     }
+
     public String getInvalidInd() {
-        return InvalidInd;
+        return invalidInd;
     }
 
     public void setInvalidInd(String invalidInd) {
         this.invalidInd = invalidInd;
     }
+
     public String getBlemishInd() {
-        return BlemishInd;
+        return blemishInd;
     }
 
     public void setBlemishInd(String blemishInd) {
         this.blemishInd = blemishInd;
     }
+
     public String getBlemishInfo() {
-        return BlemishInfo;
+        return blemishInfo;
     }
 
     public void setBlemishInfo(String blemishInfo) {
         this.blemishInfo = blemishInfo;
     }
+
     public String getHandoverDate() {
-        return HandoverDate;
+        return handoverDate;
     }
 
     public void setHandoverDate(String handoverDate) {
         this.handoverDate = handoverDate;
     }
+
     public String getKeepSpecialReq() {
-        return KeepSpecialReq;
+        return keepSpecialReq;
     }
 
     public void setKeepSpecialReq(String keepSpecialReq) {
         this.keepSpecialReq = keepSpecialReq;
     }
+
     public String getCreditorPriority() {
-        return CreditorPriority;
+        return creditorPriority;
     }
 
     public void setCreditorPriority(String creditorPriority) {
         this.creditorPriority = creditorPriority;
     }
+
     public java.math.BigDecimal getPreCreditorAmt() {
-        return PreCreditorAmt;
+        return preCreditorAmt;
     }
 
     public void setPreCreditorAmt(java.math.BigDecimal preCreditorAmt) {
         this.preCreditorAmt = preCreditorAmt;
     }
+
     public String getBelongOrgCd() {
-        return BelongOrgCd;
+        return belongOrgCd;
     }
 
     public void setBelongOrgCd(String belongOrgCd) {
         this.belongOrgCd = belongOrgCd;
     }
+
     public String getCollateralInfoStatusCd() {
-        return CollateralInfoStatusCd;
+        return collateralInfoStatusCd;
     }
 
     public void setCollateralInfoStatusCd(String collateralInfoStatusCd) {
         this.collateralInfoStatusCd = collateralInfoStatusCd;
     }
+
     public String getCollateralCreateDate() {
-        return CollateralCreateDate;
+        return collateralCreateDate;
     }
 
     public void setCollateralCreateDate(String collateralCreateDate) {
         this.collateralCreateDate = collateralCreateDate;
     }
+
     public String getEvalTypeCd() {
-        return EvalTypeCd;
+        return evalTypeCd;
     }
 
     public void setEvalTypeCd(String evalTypeCd) {
         this.evalTypeCd = evalTypeCd;
     }
+
     public String getIndCertiFull() {
-        return IndCertiFull;
+        return indCertiFull;
     }
 
     public void setIndCertiFull(String indCertiFull) {
         this.indCertiFull = indCertiFull;
     }
+
     public String getCertiNotFullCause() {
-        return CertiNotFullCause;
+        return certiNotFullCause;
     }
 
     public void setCertiNotFullCause(String certiNotFullCause) {
         this.certiNotFullCause = certiNotFullCause;
     }
+
     public String getSysUpdateTime() {
-        return SysUpdateTime;
+        return sysUpdateTime;
     }
 
     public void setSysUpdateTime(String sysUpdateTime) {
         this.sysUpdateTime = sysUpdateTime;
     }
+
     public java.math.BigDecimal getMonthRenk() {
-        return MonthRenk;
+        return monthRenk;
     }
 
     public void setMonthRenk(java.math.BigDecimal monthRenk) {
         this.monthRenk = monthRenk;
     }
+
     public String getCustomerName() {
-        return CustomerName;
+        return customerName;
     }
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
+
     public String getIsConfirmed() {
-        return IsConfirmed;
+        return isConfirmed;
     }
 
     public void setIsConfirmed(String isConfirmed) {
         this.isConfirmed = isConfirmed;
     }
+
     public String getIsTmpSave() {
-        return IsTmpSave;
+        return isTmpSave;
     }
 
     public void setIsTmpSave(String isTmpSave) {
         this.isTmpSave = isTmpSave;
     }
+
     public String getManageUser() {
-        return ManageUser;
+        return manageUser;
     }
 
     public void setManageUser(String manageUser) {
         this.manageUser = manageUser;
     }
+
     public String getIsAddProcess() {
-        return IsAddProcess;
+        return isAddProcess;
     }
 
     public void setIsAddProcess(String isAddProcess) {
         this.isAddProcess = isAddProcess;
     }
+
     public String getBelongStriplineNo() {
-        return BelongStriplineNo;
+        return belongStriplineNo;
     }
 
     public void setBelongStriplineNo(String belongStriplineNo) {
         this.belongStriplineNo = belongStriplineNo;
     }
+
     public String getManageOrgCd() {
-        return ManageOrgCd;
+        return manageOrgCd;
     }
 
     public void setManageOrgCd(String manageOrgCd) {
         this.manageOrgCd = manageOrgCd;
     }
+
     public String getCertiPlanCompletedDate() {
-        return CertiPlanCompletedDate;
+        return certiPlanCompletedDate;
     }
 
     public void setCertiPlanCompletedDate(String certiPlanCompletedDate) {
         this.certiPlanCompletedDate = certiPlanCompletedDate;
     }
+
     public String getGuarantyTypeCd() {
-        return GuarantyTypeCd;
+        return guarantyTypeCd;
     }
 
     public void setGuarantyTypeCd(String guarantyTypeCd) {
         this.guarantyTypeCd = guarantyTypeCd;
     }
+
     public String getIsBelongMainApplicant() {
-        return IsBelongMainApplicant;
+        return isBelongMainApplicant;
     }
 
     public void setIsBelongMainApplicant(String isBelongMainApplicant) {
         this.isBelongMainApplicant = isBelongMainApplicant;
     }
+
     public String getSystemSign() {
-        return SystemSign;
+        return systemSign;
     }
 
     public void setSystemSign(String systemSign) {
         this.systemSign = systemSign;
     }
+
     public String getLoanUser() {
-        return LoanUser;
+        return loanUser;
     }
 
     public void setLoanUser(String loanUser) {
         this.loanUser = loanUser;
     }
+
     public java.math.BigDecimal getGuarantyPledgeRate() {
-        return GuarantyPledgeRate;
+        return guarantyPledgeRate;
     }
 
     public void setGuarantyPledgeRate(java.math.BigDecimal guarantyPledgeRate) {
         this.guarantyPledgeRate = guarantyPledgeRate;
     }
+
     public java.math.BigDecimal getHighestGuarantyValue() {
-        return HighestGuarantyValue;
+        return highestGuarantyValue;
     }
 
     public void setHighestGuarantyValue(java.math.BigDecimal highestGuarantyValue) {
         this.highestGuarantyValue = highestGuarantyValue;
     }
+
     public java.math.BigDecimal getGuarantyDiscountRate() {
-        return GuarantyDiscountRate;
+        return guarantyDiscountRate;
     }
 
     public void setGuarantyDiscountRate(java.math.BigDecimal guarantyDiscountRate) {
         this.guarantyDiscountRate = guarantyDiscountRate;
     }
+
     public String getCertType() {
-        return CertType;
+        return certType;
     }
 
     public void setCertType(String certType) {
         this.certType = certType;
     }
+
     public String getCertCode() {
-        return CertCode;
+        return certCode;
     }
 
     public void setCertCode(String certCode) {
         this.certCode = certCode;
     }
+
     public String getIsShare() {
-        return IsShare;
+        return isShare;
     }
 
     public void setIsShare(String isShare) {
         this.isShare = isShare;
     }
+
     public String getShareGuarantyNo() {
-        return ShareGuarantyNo;
+        return shareGuarantyNo;
     }
 
     public void setShareGuarantyNo(String shareGuarantyNo) {
         this.shareGuarantyNo = shareGuarantyNo;
     }
+
     public String getUnderwriter1() {
-        return Underwriter1;
+        return underwriter1;
     }
 
     public void setUnderwriter1(String underwriter1) {
         this.underwriter1 = underwriter1;
     }
+
     public String getUnderwriter2() {
-        return Underwriter2;
+        return underwriter2;
     }
 
     public void setUnderwriter2(String underwriter2) {
         this.underwriter2 = underwriter2;
     }
+
     public String getLimitsIegalvalidity() {
-        return LimitsIegalvalidity;
+        return limitsIegalvalidity;
     }
 
     public void setLimitsIegalvalidity(String limitsIegalvalidity) {
         this.limitsIegalvalidity = limitsIegalvalidity;
     }
+
     public String getLimitsInsurance() {
-        return LimitsInsurance;
+        return limitsInsurance;
     }
 
     public void setLimitsInsurance(String limitsInsurance) {
         this.limitsInsurance = limitsInsurance;
     }
+
     public String getLimitsValuevolatility() {
-        return LimitsValuevolatility;
+        return limitsValuevolatility;
     }
 
     public void setLimitsValuevolatility(String limitsValuevolatility) {
         this.limitsValuevolatility = limitsValuevolatility;
     }
+
     public String getLimitsSeizureconvenience() {
-        return LimitsSeizureconvenience;
+        return limitsSeizureconvenience;
     }
 
     public void setLimitsSeizureconvenience(String limitsSeizureconvenience) {
         this.limitsSeizureconvenience = limitsSeizureconvenience;
     }
+
     public String getLimitsCashability() {
-        return LimitsCashability;
+        return limitsCashability;
     }
 
     public void setLimitsCashability(String limitsCashability) {
         this.limitsCashability = limitsCashability;
     }
+
     public String getLimitsBorrower() {
-        return LimitsBorrower;
+        return limitsBorrower;
     }
 
     public void setLimitsBorrower(String limitsBorrower) {
         this.limitsBorrower = limitsBorrower;
     }
+
     public String getManagerPhone() {
-        return ManagerPhone;
+        return managerPhone;
     }
 
     public void setManagerPhone(String managerPhone) {
         this.managerPhone = managerPhone;
     }
+
     public String getIsRelation() {
-        return IsRelation;
+        return isRelation;
     }
 
     public void setIsRelation(String isRelation) {
         this.isRelation = isRelation;
     }
+
     public String getOldGuarantyNo() {
-        return OldGuarantyNo;
+        return oldGuarantyNo;
     }
 
     public void setOldGuarantyNo(String oldGuarantyNo) {
         this.oldGuarantyNo = oldGuarantyNo;
     }
+
     public String getDataSource() {
-        return DataSource;
+        return dataSource;
     }
 
     public void setDataSource(String dataSource) {
         this.dataSource = dataSource;
     }
+
     }

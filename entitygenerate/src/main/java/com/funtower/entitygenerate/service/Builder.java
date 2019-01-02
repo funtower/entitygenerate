@@ -60,6 +60,12 @@ public class Builder {
 		}
 	}
 	
+	/**
+	 * 构建类主体代码
+	 * @param bw
+	 * @param tableName
+	 * @param columnInfoFromDBs
+	 */
     public static void buildClassBody(BufferedWriter bw , String tableName , List<ColumnInfoFromDB> columnInfoFromDBs) {
 		try {
 			bw.append(PubConstance.SPACE_CHARACTER).append("public class "+StringFormat.UnderlineToHump(tableName)+" implements Serializable{");
@@ -93,6 +99,13 @@ public class Builder {
 		}
 	}
 
+	/**
+	 * 构建setter
+	 * @param bw
+	 * @param columnInfoFromDB
+	 * @param _column_Small_Hump
+	 * @throws IOException
+	 */
 	private static void buildSetter(BufferedWriter bw, ColumnInfoFromDB columnInfoFromDB, String _column_Small_Hump)
 			throws IOException {
 		bw.append(PubConstance.SPACE_CHARACTER).append("public void ").append("set")
@@ -108,6 +121,14 @@ public class Builder {
 		bw.newLine();
 	}
 
+	/**
+	 * 构建getter
+	 * @param bw
+	 * @param columnInfoFromDB
+	 * @param _column_Hump
+	 * @param _column_Small_Hump
+	 * @throws IOException
+	 */
 	private static void buildGetter(BufferedWriter bw ,ColumnInfoFromDB columnInfoFromDB, String _column_Hump, String _column_Small_Hump)
 			throws IOException {
 		bw.append(PubConstance.SPACE_CHARACTER).append("public ").append(PubConstance.DATA_TYPE_MAPPING_RELATION.get(columnInfoFromDB.getDataType()))
@@ -121,8 +142,14 @@ public class Builder {
 		bw.newLine();
 	}
 
+	/**
+	 * 构建无参构造方法
+	 * @param bw
+	 * @param tableName
+	 * @throws IOException
+	 */
 	private static void buildConstructor(BufferedWriter bw, String tableName) throws IOException {
-		bw.append(PubConstance.SPACE_CHARACTER).append("public "+StringFormat.UnderlineToHump(tableName)+"() {");
+		bw.append("public "+StringFormat.UnderlineToHump(tableName)+"() {");
 		bw.newLine();
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("}");
