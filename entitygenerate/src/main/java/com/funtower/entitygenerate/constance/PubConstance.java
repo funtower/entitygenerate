@@ -9,6 +9,7 @@ public class PubConstance {
 	public static final Map<String, String> DATA_TYPE_MAPPING_RELATION = new HashMap<String, String>();
 	public static final String NEWLINE_CHARACTER = "\n\r";//Windows换行符
 	public static final String SPACE_CHARACTER = "    ";//缩进符（四个空格）
+	public static final String OVERRIDE_ANNOTATION = "@Override";//重写注解标识
 	static{
 		DATA_TYPE_MAPPING_RELATION.put("VARCHAR2", "String");
 		DATA_TYPE_MAPPING_RELATION.put("CHAR", "String");

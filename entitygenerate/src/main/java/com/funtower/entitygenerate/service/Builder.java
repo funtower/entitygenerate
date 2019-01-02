@@ -60,6 +60,84 @@ public class Builder {
 		}
 	}
 	
+	public static void overrideHashCodeFunction(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
+		bw.append(PubConstance.SPACE_CHARACTER).append("@Override");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append("public int hashCode() {");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("final int prime = 31;");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("int result = 1;");
+		bw.newLine();
+		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
+			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER)
+			.append("result = prime * result + " + buildHashCode(
+					PubConstance.DATA_TYPE_MAPPING_RELATION
+						.get(columnInfoFromDB.getDataType()), StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName()))+";");
+			bw.newLine();
+		}
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return result;");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append("}");
+		bw.newLine();
+		bw.newLine();
+	}
+	
+	/**
+	 * 构建不同类型的散列值
+	 * @param classType
+	 * @param columnName
+	 * @return
+	 */
+	public static String buildHashCode(String classType,String columnName) {
+		String returnStr = "";
+		switch (classType) {
+		case "java.math.BigDecimal":
+		case "String":
+		case "java.sql.Date":
+			returnStr = "(("+columnName+" == null) ? 0 : "+columnName+".hashCode())";
+			break;
+		default:
+			break;
+		}
+		return returnStr;
+	}
+	
+	public static void buildEqualsFunction(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs , String tableName) throws IOException {
+		bw.append(PubConstance.SPACE_CHARACTER).append("@Override");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append("public boolean equals(Object obj) {");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if (this == obj)");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return true;");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if (obj == null)");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return false;");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if (getClass() != obj.getClass())");
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return false;");
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(StringFormat.UnderlineToHump(tableName)).append(" ").append("other").append(" = ")
+		.append("(").append(StringFormat.UnderlineToHump(tableName)).append(")").append("obj;");
+		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
+			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if ("+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+" == null) {");
+			bw.newLine();
+			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("if (other."+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+" != null)");
+			bw.newLine();
+			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return false;");
+			bw.newLine();
+			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("} else if (!"+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+".equals(other."+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+"))");
+			bw.newLine();
+			bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return false;");
+			bw.newLine();
+		}
+		bw.append(PubConstance.SPACE_CHARACTER).append(PubConstance.SPACE_CHARACTER).append("return true;");
+		bw.newLine();
+		bw.append(PubConstance.SPACE_CHARACTER).append("}");
+		bw.newLine();
+	}
+	
 	/**
 	 * 构建类主体代码
 	 * @param bw
@@ -74,7 +152,9 @@ public class Builder {
 			bw.newLine();
 			buildAttributes(bw,columnInfoFromDBs);
 			buildFunctions(bw,tableName, columnInfoFromDBs);
-			bw.append(PubConstance.SPACE_CHARACTER).append("}");
+			overrideHashCodeFunction(bw, columnInfoFromDBs);
+			buildEqualsFunction(bw, columnInfoFromDBs, tableName);
+			bw.append("}");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

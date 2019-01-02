@@ -103,6 +103,7 @@ public class GuarantyBaseInfo implements Serializable{
     public GuarantyBaseInfo() {
 
     }
+
     public String getGuarantyNo() {
         return guarantyNo;
     }
@@ -863,4 +864,588 @@ public class GuarantyBaseInfo implements Serializable{
         this.dataSource = dataSource;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((guarantyNo == null) ? 0 : guarantyNo.hashCode());
+        result = prime * result + ((guarantyName == null) ? 0 : guarantyName.hashCode());
+        result = prime * result + ((collateralTypeCd == null) ? 0 : collateralTypeCd.hashCode());
+        result = prime * result + ((guarantorPartyId == null) ? 0 : guarantorPartyId.hashCode());
+        result = prime * result + ((customerNum == null) ? 0 : customerNum.hashCode());
+        result = prime * result + ((currencyCd == null) ? 0 : currencyCd.hashCode());
+        result = prime * result + ((bookValue == null) ? 0 : bookValue.hashCode());
+        result = prime * result + ((bookNetValue == null) ? 0 : bookNetValue.hashCode());
+        result = prime * result + ((marketValue == null) ? 0 : marketValue.hashCode());
+        result = prime * result + ((evalValueCurrCd == null) ? 0 : evalValueCurrCd.hashCode());
+        result = prime * result + ((evalValue == null) ? 0 : evalValue.hashCode());
+        result = prime * result + ((bankAssessedCurrCd == null) ? 0 : bankAssessedCurrCd.hashCode());
+        result = prime * result + ((bankAssessedValue == null) ? 0 : bankAssessedValue.hashCode());
+        result = prime * result + ((collateralStatusCd == null) ? 0 : collateralStatusCd.hashCode());
+        result = prime * result + ((collateralDispose == null) ? 0 : collateralDispose.hashCode());
+        result = prime * result + ((acquireWayCd == null) ? 0 : acquireWayCd.hashCode());
+        result = prime * result + ((commonAssetsInd == null) ? 0 : commonAssetsInd.hashCode());
+        result = prime * result + ((commonOwnerName == null) ? 0 : commonOwnerName.hashCode());
+        result = prime * result + ((effectiveWayCd == null) ? 0 : effectiveWayCd.hashCode());
+        result = prime * result + ((collateralSetupInd == null) ? 0 : collateralSetupInd.hashCode());
+        result = prime * result + ((setGuarantyAmt == null) ? 0 : setGuarantyAmt.hashCode());
+        result = prime * result + ((rentedLicensedInd == null) ? 0 : rentedLicensedInd.hashCode());
+        result = prime * result + ((renterName == null) ? 0 : renterName.hashCode());
+        result = prime * result + ((leaseExpirationDate == null) ? 0 : leaseExpirationDate.hashCode());
+        result = prime * result + ((otherNote == null) ? 0 : otherNote.hashCode());
+        result = prime * result + ((submittingDate == null) ? 0 : submittingDate.hashCode());
+        result = prime * result + ((nationalityCd == null) ? 0 : nationalityCd.hashCode());
+        result = prime * result + ((provinceCd == null) ? 0 : provinceCd.hashCode());
+        result = prime * result + ((cityCd == null) ? 0 : cityCd.hashCode());
+        result = prime * result + ((districtCd == null) ? 0 : districtCd.hashCode());
+        result = prime * result + ((streetAddress == null) ? 0 : streetAddress.hashCode());
+        result = prime * result + ((merchandiseType == null) ? 0 : merchandiseType.hashCode());
+        result = prime * result + ((rightCertTypeCd == null) ? 0 : rightCertTypeCd.hashCode());
+        result = prime * result + ((rightCertificationNum == null) ? 0 : rightCertificationNum.hashCode());
+        result = prime * result + ((setGuarantyAmtInBank == null) ? 0 : setGuarantyAmtInBank.hashCode());
+        result = prime * result + ((setGuarantyAmtOutBank == null) ? 0 : setGuarantyAmtOutBank.hashCode());
+        result = prime * result + ((collateralCatalogCd == null) ? 0 : collateralCatalogCd.hashCode());
+        result = prime * result + ((collateralKeeper == null) ? 0 : collateralKeeper.hashCode());
+        result = prime * result + ((storeDate == null) ? 0 : storeDate.hashCode());
+        result = prime * result + ((keepBranch == null) ? 0 : keepBranch.hashCode());
+        result = prime * result + ((dataCreatUserNum == null) ? 0 : dataCreatUserNum.hashCode());
+        result = prime * result + ((dataCreatorOrgCd == null) ? 0 : dataCreatorOrgCd.hashCode());
+        result = prime * result + ((lastUpdateUserNum == null) ? 0 : lastUpdateUserNum.hashCode());
+        result = prime * result + ((lastUpdateOrgCd == null) ? 0 : lastUpdateOrgCd.hashCode());
+        result = prime * result + ((takeoverInd == null) ? 0 : takeoverInd.hashCode());
+        result = prime * result + ((allPledgeInd == null) ? 0 : allPledgeInd.hashCode());
+        result = prime * result + ((forbidCirculateInd == null) ? 0 : forbidCirculateInd.hashCode());
+        result = prime * result + ((nationalisationInd == null) ? 0 : nationalisationInd.hashCode());
+        result = prime * result + ((propertyDisputedInd == null) ? 0 : propertyDisputedInd.hashCode());
+        result = prime * result + ((invalidInd == null) ? 0 : invalidInd.hashCode());
+        result = prime * result + ((blemishInd == null) ? 0 : blemishInd.hashCode());
+        result = prime * result + ((blemishInfo == null) ? 0 : blemishInfo.hashCode());
+        result = prime * result + ((handoverDate == null) ? 0 : handoverDate.hashCode());
+        result = prime * result + ((keepSpecialReq == null) ? 0 : keepSpecialReq.hashCode());
+        result = prime * result + ((creditorPriority == null) ? 0 : creditorPriority.hashCode());
+        result = prime * result + ((preCreditorAmt == null) ? 0 : preCreditorAmt.hashCode());
+        result = prime * result + ((belongOrgCd == null) ? 0 : belongOrgCd.hashCode());
+        result = prime * result + ((collateralInfoStatusCd == null) ? 0 : collateralInfoStatusCd.hashCode());
+        result = prime * result + ((collateralCreateDate == null) ? 0 : collateralCreateDate.hashCode());
+        result = prime * result + ((evalTypeCd == null) ? 0 : evalTypeCd.hashCode());
+        result = prime * result + ((indCertiFull == null) ? 0 : indCertiFull.hashCode());
+        result = prime * result + ((certiNotFullCause == null) ? 0 : certiNotFullCause.hashCode());
+        result = prime * result + ((sysUpdateTime == null) ? 0 : sysUpdateTime.hashCode());
+        result = prime * result + ((monthRenk == null) ? 0 : monthRenk.hashCode());
+        result = prime * result + ((customerName == null) ? 0 : customerName.hashCode());
+        result = prime * result + ((isConfirmed == null) ? 0 : isConfirmed.hashCode());
+        result = prime * result + ((isTmpSave == null) ? 0 : isTmpSave.hashCode());
+        result = prime * result + ((manageUser == null) ? 0 : manageUser.hashCode());
+        result = prime * result + ((isAddProcess == null) ? 0 : isAddProcess.hashCode());
+        result = prime * result + ((belongStriplineNo == null) ? 0 : belongStriplineNo.hashCode());
+        result = prime * result + ((manageOrgCd == null) ? 0 : manageOrgCd.hashCode());
+        result = prime * result + ((certiPlanCompletedDate == null) ? 0 : certiPlanCompletedDate.hashCode());
+        result = prime * result + ((guarantyTypeCd == null) ? 0 : guarantyTypeCd.hashCode());
+        result = prime * result + ((isBelongMainApplicant == null) ? 0 : isBelongMainApplicant.hashCode());
+        result = prime * result + ((systemSign == null) ? 0 : systemSign.hashCode());
+        result = prime * result + ((loanUser == null) ? 0 : loanUser.hashCode());
+        result = prime * result + ((guarantyPledgeRate == null) ? 0 : guarantyPledgeRate.hashCode());
+        result = prime * result + ((highestGuarantyValue == null) ? 0 : highestGuarantyValue.hashCode());
+        result = prime * result + ((guarantyDiscountRate == null) ? 0 : guarantyDiscountRate.hashCode());
+        result = prime * result + ((certType == null) ? 0 : certType.hashCode());
+        result = prime * result + ((certCode == null) ? 0 : certCode.hashCode());
+        result = prime * result + ((isShare == null) ? 0 : isShare.hashCode());
+        result = prime * result + ((shareGuarantyNo == null) ? 0 : shareGuarantyNo.hashCode());
+        result = prime * result + ((underwriter1 == null) ? 0 : underwriter1.hashCode());
+        result = prime * result + ((underwriter2 == null) ? 0 : underwriter2.hashCode());
+        result = prime * result + ((limitsIegalvalidity == null) ? 0 : limitsIegalvalidity.hashCode());
+        result = prime * result + ((limitsInsurance == null) ? 0 : limitsInsurance.hashCode());
+        result = prime * result + ((limitsValuevolatility == null) ? 0 : limitsValuevolatility.hashCode());
+        result = prime * result + ((limitsSeizureconvenience == null) ? 0 : limitsSeizureconvenience.hashCode());
+        result = prime * result + ((limitsCashability == null) ? 0 : limitsCashability.hashCode());
+        result = prime * result + ((limitsBorrower == null) ? 0 : limitsBorrower.hashCode());
+        result = prime * result + ((managerPhone == null) ? 0 : managerPhone.hashCode());
+        result = prime * result + ((isRelation == null) ? 0 : isRelation.hashCode());
+        result = prime * result + ((oldGuarantyNo == null) ? 0 : oldGuarantyNo.hashCode());
+        result = prime * result + ((dataSource == null) ? 0 : dataSource.hashCode());
+        return result;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())            return false;        GuarantyBaseInfo other = (GuarantyBaseInfo)obj;        if (guarantyNo == null) {
+            if (other.guarantyNo != null)
+                return false;
+        } else if (!guarantyNo.equals(other.guarantyNo))
+            return false;
+        if (guarantyName == null) {
+            if (other.guarantyName != null)
+                return false;
+        } else if (!guarantyName.equals(other.guarantyName))
+            return false;
+        if (collateralTypeCd == null) {
+            if (other.collateralTypeCd != null)
+                return false;
+        } else if (!collateralTypeCd.equals(other.collateralTypeCd))
+            return false;
+        if (guarantorPartyId == null) {
+            if (other.guarantorPartyId != null)
+                return false;
+        } else if (!guarantorPartyId.equals(other.guarantorPartyId))
+            return false;
+        if (customerNum == null) {
+            if (other.customerNum != null)
+                return false;
+        } else if (!customerNum.equals(other.customerNum))
+            return false;
+        if (currencyCd == null) {
+            if (other.currencyCd != null)
+                return false;
+        } else if (!currencyCd.equals(other.currencyCd))
+            return false;
+        if (bookValue == null) {
+            if (other.bookValue != null)
+                return false;
+        } else if (!bookValue.equals(other.bookValue))
+            return false;
+        if (bookNetValue == null) {
+            if (other.bookNetValue != null)
+                return false;
+        } else if (!bookNetValue.equals(other.bookNetValue))
+            return false;
+        if (marketValue == null) {
+            if (other.marketValue != null)
+                return false;
+        } else if (!marketValue.equals(other.marketValue))
+            return false;
+        if (evalValueCurrCd == null) {
+            if (other.evalValueCurrCd != null)
+                return false;
+        } else if (!evalValueCurrCd.equals(other.evalValueCurrCd))
+            return false;
+        if (evalValue == null) {
+            if (other.evalValue != null)
+                return false;
+        } else if (!evalValue.equals(other.evalValue))
+            return false;
+        if (bankAssessedCurrCd == null) {
+            if (other.bankAssessedCurrCd != null)
+                return false;
+        } else if (!bankAssessedCurrCd.equals(other.bankAssessedCurrCd))
+            return false;
+        if (bankAssessedValue == null) {
+            if (other.bankAssessedValue != null)
+                return false;
+        } else if (!bankAssessedValue.equals(other.bankAssessedValue))
+            return false;
+        if (collateralStatusCd == null) {
+            if (other.collateralStatusCd != null)
+                return false;
+        } else if (!collateralStatusCd.equals(other.collateralStatusCd))
+            return false;
+        if (collateralDispose == null) {
+            if (other.collateralDispose != null)
+                return false;
+        } else if (!collateralDispose.equals(other.collateralDispose))
+            return false;
+        if (acquireWayCd == null) {
+            if (other.acquireWayCd != null)
+                return false;
+        } else if (!acquireWayCd.equals(other.acquireWayCd))
+            return false;
+        if (commonAssetsInd == null) {
+            if (other.commonAssetsInd != null)
+                return false;
+        } else if (!commonAssetsInd.equals(other.commonAssetsInd))
+            return false;
+        if (commonOwnerName == null) {
+            if (other.commonOwnerName != null)
+                return false;
+        } else if (!commonOwnerName.equals(other.commonOwnerName))
+            return false;
+        if (effectiveWayCd == null) {
+            if (other.effectiveWayCd != null)
+                return false;
+        } else if (!effectiveWayCd.equals(other.effectiveWayCd))
+            return false;
+        if (collateralSetupInd == null) {
+            if (other.collateralSetupInd != null)
+                return false;
+        } else if (!collateralSetupInd.equals(other.collateralSetupInd))
+            return false;
+        if (setGuarantyAmt == null) {
+            if (other.setGuarantyAmt != null)
+                return false;
+        } else if (!setGuarantyAmt.equals(other.setGuarantyAmt))
+            return false;
+        if (rentedLicensedInd == null) {
+            if (other.rentedLicensedInd != null)
+                return false;
+        } else if (!rentedLicensedInd.equals(other.rentedLicensedInd))
+            return false;
+        if (renterName == null) {
+            if (other.renterName != null)
+                return false;
+        } else if (!renterName.equals(other.renterName))
+            return false;
+        if (leaseExpirationDate == null) {
+            if (other.leaseExpirationDate != null)
+                return false;
+        } else if (!leaseExpirationDate.equals(other.leaseExpirationDate))
+            return false;
+        if (otherNote == null) {
+            if (other.otherNote != null)
+                return false;
+        } else if (!otherNote.equals(other.otherNote))
+            return false;
+        if (submittingDate == null) {
+            if (other.submittingDate != null)
+                return false;
+        } else if (!submittingDate.equals(other.submittingDate))
+            return false;
+        if (nationalityCd == null) {
+            if (other.nationalityCd != null)
+                return false;
+        } else if (!nationalityCd.equals(other.nationalityCd))
+            return false;
+        if (provinceCd == null) {
+            if (other.provinceCd != null)
+                return false;
+        } else if (!provinceCd.equals(other.provinceCd))
+            return false;
+        if (cityCd == null) {
+            if (other.cityCd != null)
+                return false;
+        } else if (!cityCd.equals(other.cityCd))
+            return false;
+        if (districtCd == null) {
+            if (other.districtCd != null)
+                return false;
+        } else if (!districtCd.equals(other.districtCd))
+            return false;
+        if (streetAddress == null) {
+            if (other.streetAddress != null)
+                return false;
+        } else if (!streetAddress.equals(other.streetAddress))
+            return false;
+        if (merchandiseType == null) {
+            if (other.merchandiseType != null)
+                return false;
+        } else if (!merchandiseType.equals(other.merchandiseType))
+            return false;
+        if (rightCertTypeCd == null) {
+            if (other.rightCertTypeCd != null)
+                return false;
+        } else if (!rightCertTypeCd.equals(other.rightCertTypeCd))
+            return false;
+        if (rightCertificationNum == null) {
+            if (other.rightCertificationNum != null)
+                return false;
+        } else if (!rightCertificationNum.equals(other.rightCertificationNum))
+            return false;
+        if (setGuarantyAmtInBank == null) {
+            if (other.setGuarantyAmtInBank != null)
+                return false;
+        } else if (!setGuarantyAmtInBank.equals(other.setGuarantyAmtInBank))
+            return false;
+        if (setGuarantyAmtOutBank == null) {
+            if (other.setGuarantyAmtOutBank != null)
+                return false;
+        } else if (!setGuarantyAmtOutBank.equals(other.setGuarantyAmtOutBank))
+            return false;
+        if (collateralCatalogCd == null) {
+            if (other.collateralCatalogCd != null)
+                return false;
+        } else if (!collateralCatalogCd.equals(other.collateralCatalogCd))
+            return false;
+        if (collateralKeeper == null) {
+            if (other.collateralKeeper != null)
+                return false;
+        } else if (!collateralKeeper.equals(other.collateralKeeper))
+            return false;
+        if (storeDate == null) {
+            if (other.storeDate != null)
+                return false;
+        } else if (!storeDate.equals(other.storeDate))
+            return false;
+        if (keepBranch == null) {
+            if (other.keepBranch != null)
+                return false;
+        } else if (!keepBranch.equals(other.keepBranch))
+            return false;
+        if (dataCreatUserNum == null) {
+            if (other.dataCreatUserNum != null)
+                return false;
+        } else if (!dataCreatUserNum.equals(other.dataCreatUserNum))
+            return false;
+        if (dataCreatorOrgCd == null) {
+            if (other.dataCreatorOrgCd != null)
+                return false;
+        } else if (!dataCreatorOrgCd.equals(other.dataCreatorOrgCd))
+            return false;
+        if (lastUpdateUserNum == null) {
+            if (other.lastUpdateUserNum != null)
+                return false;
+        } else if (!lastUpdateUserNum.equals(other.lastUpdateUserNum))
+            return false;
+        if (lastUpdateOrgCd == null) {
+            if (other.lastUpdateOrgCd != null)
+                return false;
+        } else if (!lastUpdateOrgCd.equals(other.lastUpdateOrgCd))
+            return false;
+        if (takeoverInd == null) {
+            if (other.takeoverInd != null)
+                return false;
+        } else if (!takeoverInd.equals(other.takeoverInd))
+            return false;
+        if (allPledgeInd == null) {
+            if (other.allPledgeInd != null)
+                return false;
+        } else if (!allPledgeInd.equals(other.allPledgeInd))
+            return false;
+        if (forbidCirculateInd == null) {
+            if (other.forbidCirculateInd != null)
+                return false;
+        } else if (!forbidCirculateInd.equals(other.forbidCirculateInd))
+            return false;
+        if (nationalisationInd == null) {
+            if (other.nationalisationInd != null)
+                return false;
+        } else if (!nationalisationInd.equals(other.nationalisationInd))
+            return false;
+        if (propertyDisputedInd == null) {
+            if (other.propertyDisputedInd != null)
+                return false;
+        } else if (!propertyDisputedInd.equals(other.propertyDisputedInd))
+            return false;
+        if (invalidInd == null) {
+            if (other.invalidInd != null)
+                return false;
+        } else if (!invalidInd.equals(other.invalidInd))
+            return false;
+        if (blemishInd == null) {
+            if (other.blemishInd != null)
+                return false;
+        } else if (!blemishInd.equals(other.blemishInd))
+            return false;
+        if (blemishInfo == null) {
+            if (other.blemishInfo != null)
+                return false;
+        } else if (!blemishInfo.equals(other.blemishInfo))
+            return false;
+        if (handoverDate == null) {
+            if (other.handoverDate != null)
+                return false;
+        } else if (!handoverDate.equals(other.handoverDate))
+            return false;
+        if (keepSpecialReq == null) {
+            if (other.keepSpecialReq != null)
+                return false;
+        } else if (!keepSpecialReq.equals(other.keepSpecialReq))
+            return false;
+        if (creditorPriority == null) {
+            if (other.creditorPriority != null)
+                return false;
+        } else if (!creditorPriority.equals(other.creditorPriority))
+            return false;
+        if (preCreditorAmt == null) {
+            if (other.preCreditorAmt != null)
+                return false;
+        } else if (!preCreditorAmt.equals(other.preCreditorAmt))
+            return false;
+        if (belongOrgCd == null) {
+            if (other.belongOrgCd != null)
+                return false;
+        } else if (!belongOrgCd.equals(other.belongOrgCd))
+            return false;
+        if (collateralInfoStatusCd == null) {
+            if (other.collateralInfoStatusCd != null)
+                return false;
+        } else if (!collateralInfoStatusCd.equals(other.collateralInfoStatusCd))
+            return false;
+        if (collateralCreateDate == null) {
+            if (other.collateralCreateDate != null)
+                return false;
+        } else if (!collateralCreateDate.equals(other.collateralCreateDate))
+            return false;
+        if (evalTypeCd == null) {
+            if (other.evalTypeCd != null)
+                return false;
+        } else if (!evalTypeCd.equals(other.evalTypeCd))
+            return false;
+        if (indCertiFull == null) {
+            if (other.indCertiFull != null)
+                return false;
+        } else if (!indCertiFull.equals(other.indCertiFull))
+            return false;
+        if (certiNotFullCause == null) {
+            if (other.certiNotFullCause != null)
+                return false;
+        } else if (!certiNotFullCause.equals(other.certiNotFullCause))
+            return false;
+        if (sysUpdateTime == null) {
+            if (other.sysUpdateTime != null)
+                return false;
+        } else if (!sysUpdateTime.equals(other.sysUpdateTime))
+            return false;
+        if (monthRenk == null) {
+            if (other.monthRenk != null)
+                return false;
+        } else if (!monthRenk.equals(other.monthRenk))
+            return false;
+        if (customerName == null) {
+            if (other.customerName != null)
+                return false;
+        } else if (!customerName.equals(other.customerName))
+            return false;
+        if (isConfirmed == null) {
+            if (other.isConfirmed != null)
+                return false;
+        } else if (!isConfirmed.equals(other.isConfirmed))
+            return false;
+        if (isTmpSave == null) {
+            if (other.isTmpSave != null)
+                return false;
+        } else if (!isTmpSave.equals(other.isTmpSave))
+            return false;
+        if (manageUser == null) {
+            if (other.manageUser != null)
+                return false;
+        } else if (!manageUser.equals(other.manageUser))
+            return false;
+        if (isAddProcess == null) {
+            if (other.isAddProcess != null)
+                return false;
+        } else if (!isAddProcess.equals(other.isAddProcess))
+            return false;
+        if (belongStriplineNo == null) {
+            if (other.belongStriplineNo != null)
+                return false;
+        } else if (!belongStriplineNo.equals(other.belongStriplineNo))
+            return false;
+        if (manageOrgCd == null) {
+            if (other.manageOrgCd != null)
+                return false;
+        } else if (!manageOrgCd.equals(other.manageOrgCd))
+            return false;
+        if (certiPlanCompletedDate == null) {
+            if (other.certiPlanCompletedDate != null)
+                return false;
+        } else if (!certiPlanCompletedDate.equals(other.certiPlanCompletedDate))
+            return false;
+        if (guarantyTypeCd == null) {
+            if (other.guarantyTypeCd != null)
+                return false;
+        } else if (!guarantyTypeCd.equals(other.guarantyTypeCd))
+            return false;
+        if (isBelongMainApplicant == null) {
+            if (other.isBelongMainApplicant != null)
+                return false;
+        } else if (!isBelongMainApplicant.equals(other.isBelongMainApplicant))
+            return false;
+        if (systemSign == null) {
+            if (other.systemSign != null)
+                return false;
+        } else if (!systemSign.equals(other.systemSign))
+            return false;
+        if (loanUser == null) {
+            if (other.loanUser != null)
+                return false;
+        } else if (!loanUser.equals(other.loanUser))
+            return false;
+        if (guarantyPledgeRate == null) {
+            if (other.guarantyPledgeRate != null)
+                return false;
+        } else if (!guarantyPledgeRate.equals(other.guarantyPledgeRate))
+            return false;
+        if (highestGuarantyValue == null) {
+            if (other.highestGuarantyValue != null)
+                return false;
+        } else if (!highestGuarantyValue.equals(other.highestGuarantyValue))
+            return false;
+        if (guarantyDiscountRate == null) {
+            if (other.guarantyDiscountRate != null)
+                return false;
+        } else if (!guarantyDiscountRate.equals(other.guarantyDiscountRate))
+            return false;
+        if (certType == null) {
+            if (other.certType != null)
+                return false;
+        } else if (!certType.equals(other.certType))
+            return false;
+        if (certCode == null) {
+            if (other.certCode != null)
+                return false;
+        } else if (!certCode.equals(other.certCode))
+            return false;
+        if (isShare == null) {
+            if (other.isShare != null)
+                return false;
+        } else if (!isShare.equals(other.isShare))
+            return false;
+        if (shareGuarantyNo == null) {
+            if (other.shareGuarantyNo != null)
+                return false;
+        } else if (!shareGuarantyNo.equals(other.shareGuarantyNo))
+            return false;
+        if (underwriter1 == null) {
+            if (other.underwriter1 != null)
+                return false;
+        } else if (!underwriter1.equals(other.underwriter1))
+            return false;
+        if (underwriter2 == null) {
+            if (other.underwriter2 != null)
+                return false;
+        } else if (!underwriter2.equals(other.underwriter2))
+            return false;
+        if (limitsIegalvalidity == null) {
+            if (other.limitsIegalvalidity != null)
+                return false;
+        } else if (!limitsIegalvalidity.equals(other.limitsIegalvalidity))
+            return false;
+        if (limitsInsurance == null) {
+            if (other.limitsInsurance != null)
+                return false;
+        } else if (!limitsInsurance.equals(other.limitsInsurance))
+            return false;
+        if (limitsValuevolatility == null) {
+            if (other.limitsValuevolatility != null)
+                return false;
+        } else if (!limitsValuevolatility.equals(other.limitsValuevolatility))
+            return false;
+        if (limitsSeizureconvenience == null) {
+            if (other.limitsSeizureconvenience != null)
+                return false;
+        } else if (!limitsSeizureconvenience.equals(other.limitsSeizureconvenience))
+            return false;
+        if (limitsCashability == null) {
+            if (other.limitsCashability != null)
+                return false;
+        } else if (!limitsCashability.equals(other.limitsCashability))
+            return false;
+        if (limitsBorrower == null) {
+            if (other.limitsBorrower != null)
+                return false;
+        } else if (!limitsBorrower.equals(other.limitsBorrower))
+            return false;
+        if (managerPhone == null) {
+            if (other.managerPhone != null)
+                return false;
+        } else if (!managerPhone.equals(other.managerPhone))
+            return false;
+        if (isRelation == null) {
+            if (other.isRelation != null)
+                return false;
+        } else if (!isRelation.equals(other.isRelation))
+            return false;
+        if (oldGuarantyNo == null) {
+            if (other.oldGuarantyNo != null)
+                return false;
+        } else if (!oldGuarantyNo.equals(other.oldGuarantyNo))
+            return false;
+        if (dataSource == null) {
+            if (other.dataSource != null)
+                return false;
+        } else if (!dataSource.equals(other.dataSource))
+            return false;
+        return true;
+    }
+}
