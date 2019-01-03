@@ -3,6 +3,7 @@ package entitygenerate;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class HashCodeTest implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -27,7 +28,18 @@ public class HashCodeTest implements Serializable{
 	private String String0;
 	private BigDecimal BigDecimal0;
 	private Date date;
+	private Timestamp timestamp;
 	
+	
+	
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
+	}
+
 	public HashCodeTest() {
 		
 	}
@@ -238,6 +250,7 @@ public class HashCodeTest implements Serializable{
 		result = prime * result + int0;
 		result = prime * result + (int) (long0 ^ (long0 >>> 32));
 		result = prime * result + short0;
+		result = prime * result + ((timestamp == null) ? 0 : timestamp.hashCode());
 		return result;
 	}
 
@@ -320,6 +333,11 @@ public class HashCodeTest implements Serializable{
 		if (long0 != other.long0)
 			return false;
 		if (short0 != other.short0)
+			return false;
+		if (timestamp == null) {
+			if (other.timestamp != null)
+				return false;
+		} else if (!timestamp.equals(other.timestamp))
 			return false;
 		return true;
 	}

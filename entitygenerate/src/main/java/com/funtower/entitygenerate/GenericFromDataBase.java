@@ -23,18 +23,19 @@ import com.funtower.entitygenerate.constance.PubConstance;
 import com.funtower.entitygenerate.entity.ColumnInfoFromDB;
 import com.funtower.entitygenerate.service.Builder;
 
-public class GenericFromOracleDB {
+public class GenericFromDataBase {
 
-	private static final Logger log = LoggerFactory.getLogger(GenericFromOracleDB.class);
+	private static final Logger log = LoggerFactory.getLogger(GenericFromDataBase.class);
 	public static void main(String[] args) {
 		
 		Properties properties = new Properties();
 		BufferedWriter bw = null;
 		Connection conn = null;
 		try {
-			FileReader fr = new FileReader("E:/gitrepository/entitygenerate/src/main/resources/datasource.properties");
+			FileReader fr = new FileReader("E:/gitrepository/entitygenerate/src/main/resources/datasource_mysql.properties");
 			properties.load(fr);
 			fr.close();
+			String driverType = properties.getProperty("driverType");
 			String driverName = properties.getProperty("driverName");
 			String url = properties.getProperty("url");
 			String username = properties.getProperty("username");
@@ -50,29 +51,27 @@ public class GenericFromOracleDB {
 			log.debug(conn.toString());
 			// 3.创建sql语句执行对象
 			Statement stat = conn.createStatement();
-			String querySql = PubConstance.getSql(tableName);
+			String querySql = PubConstance.getSql(tableName,driverType);
 			ResultSet rs = stat.executeQuery(querySql);
 			List<ColumnInfoFromDB> columnInfoFromDBs = new ArrayList<ColumnInfoFromDB>();
 			Set<String> dataTypes = new HashSet<String>();
 			while (rs.next()) {
 				ColumnInfoFromDB columnInfoFromDB = new ColumnInfoFromDB();
 				String columnName = rs.getString("column_name");
-				String comments = rs.getString("comments");
+				String comments = "oracle".equalsIgnoreCase(driverType) ? rs.getString("comments") : rs.getString("column_comment");
 				String dataType = rs.getString("data_type");
 				tableName = rs.getString("table_name");
-				Integer dataLength = rs.getInt("data_length");
 				dataTypes.add(dataType);
 				columnInfoFromDB.setColumnName(columnName);
 				columnInfoFromDB.setComments(comments);
-				columnInfoFromDB.setDatalength(dataLength);
 				columnInfoFromDB.setTableName(tableName);
 				columnInfoFromDB.setDataType(dataType);
 				columnInfoFromDBs.add(columnInfoFromDB);
 			}
-			bw = new BufferedWriter(new FileWriter("GuarantyBaseInfo.java"));
+			bw = new BufferedWriter(new FileWriter("ProductCategory.java"));
 			Builder.packageStatement(bw);
 			Builder.importClass(bw, dataTypes);
-			Builder.buildClassBody(bw, tableName, columnInfoFromDBs);
+			Builder.buildClassBody(bw, tableName, columnInfoFromDBs,driverType);
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

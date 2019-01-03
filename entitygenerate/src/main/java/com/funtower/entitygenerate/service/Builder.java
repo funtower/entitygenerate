@@ -56,6 +56,9 @@ public class Builder {
 			}else if(dataTypes.contains("Date")){
 				bw.append("import java.sql.Date;");
 				bw.newLine();
+			}else if(dataTypes.contains("timestamp")){
+				bw.append("import java.sql.Timestamp;");
+				bw.newLine();
 			}
 			bw.newLine();
 		} catch (IOException e) {
@@ -69,7 +72,7 @@ public class Builder {
 	 * @param columnInfoFromDBs
 	 * @throws IOException
 	 */
-	public static void overrideHashCodeFunction(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
+	public static void overrideHashCodeFunction(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs,String driverType) throws IOException {
 		bw.append(PubConstance.SPACE_CHARACTER).append("@Override");
 		bw.newLine();
 		bw.append(PubConstance.SPACE_CHARACTER).append("public int hashCode() {");
@@ -81,8 +84,7 @@ public class Builder {
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
 			bw.append(PubConstance.DOUBLE_SPACE)
 			.append("result = prime * result + " + buildHashCode(
-					PubConstance.DATA_TYPE_MAPPING_RELATION
-						.get(columnInfoFromDB.getDataType()), StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName()))+";");
+					PubConstance.getMapping(driverType).get(columnInfoFromDB.getDataType()), StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName()))+";");
 			bw.newLine();
 		}
 		bw.append(PubConstance.DOUBLE_SPACE).append("return result;");
@@ -104,6 +106,8 @@ public class Builder {
 		case "BigDecimal":
 		case "String":
 		case "Date":
+		case "Integer":
+		case "Timestamp":
 			returnStr = "(("+columnName+" == null) ? 0 : "+columnName+".hashCode())";
 			break;
 		default:
@@ -133,9 +137,12 @@ public class Builder {
 		bw.append(PubConstance.TRIPLE_SPACE).append("return false;");
 		bw.newLine();
 		bw.append(PubConstance.DOUBLE_SPACE).append("if (getClass() != obj.getClass())");
+		bw.newLine();
 		bw.append(PubConstance.TRIPLE_SPACE).append("return false;");
+		bw.newLine();
 		bw.append(PubConstance.DOUBLE_SPACE).append(StringFormat.UnderlineToHump(tableName)).append(" ").append("other").append(" = ")
 		.append("(").append(StringFormat.UnderlineToHump(tableName)).append(")").append("obj;");
+		bw.newLine();
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
 			bw.append(PubConstance.DOUBLE_SPACE).append("if ("+StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())+" == null) {");
 			bw.newLine();
@@ -190,15 +197,15 @@ public class Builder {
 	 * @param tableName
 	 * @param columnInfoFromDBs
 	 */
-    public static void buildClassBody(BufferedWriter bw , String tableName , List<ColumnInfoFromDB> columnInfoFromDBs) {
+    public static void buildClassBody(BufferedWriter bw , String tableName , List<ColumnInfoFromDB> columnInfoFromDBs,String driverType) {
 		try {
 			bw.append("public class "+StringFormat.UnderlineToHump(tableName)+" implements Serializable{");
 			bw.newLine();
 			serializableStatement(bw);
 			bw.newLine();
-			buildAttributes(bw,columnInfoFromDBs);
-			buildFunctions(bw,tableName, columnInfoFromDBs);
-			overrideHashCodeFunction(bw, columnInfoFromDBs);
+			buildAttributes(bw,columnInfoFromDBs,driverType);
+			buildFunctions(bw,tableName, driverType,columnInfoFromDBs);
+			overrideHashCodeFunction(bw, columnInfoFromDBs,driverType);
 			buildEqualsFunction(bw, columnInfoFromDBs, tableName);
 			bw.newLine();
 			bw.append(buildToStringFunction(tableName, columnInfoFromDBs));
@@ -215,14 +222,14 @@ public class Builder {
 	 * @param columnInfoFromDBs
 	 * @throws IOException 
 	 */
-	private static void buildFunctions(BufferedWriter bw , String tableName ,List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
+	private static void buildFunctions(BufferedWriter bw , String tableName,String driverType ,List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
 //		buildConstructor(bw, tableName);//构造方法可不写
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
 			String _column_Hump = StringFormat.UnderlineToHump(columnInfoFromDB.getColumnName());
 			String _column_Small_Hump = StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName());
-			buildGetter(bw, columnInfoFromDB,_column_Hump,_column_Small_Hump);
+			buildGetter(bw, columnInfoFromDB, driverType,_column_Hump,_column_Small_Hump);
 			bw.newLine();
-			buildSetter(bw, columnInfoFromDB, _column_Small_Hump);
+			buildSetter(bw, columnInfoFromDB, driverType,_column_Small_Hump);
 			bw.newLine();
 		}
 	}
@@ -234,11 +241,11 @@ public class Builder {
 	 * @param _column_Small_Hump
 	 * @throws IOException
 	 */
-	private static void buildSetter(BufferedWriter bw, ColumnInfoFromDB columnInfoFromDB, String _column_Small_Hump)
+	private static void buildSetter(BufferedWriter bw, ColumnInfoFromDB columnInfoFromDB, String driverType ,String _column_Small_Hump)
 			throws IOException {
 		bw.append(PubConstance.SPACE_CHARACTER).append("public void ").append("set")
 		.append(StringFormat.UnderlineToHump(columnInfoFromDB.getColumnName()))
-		.append("(").append(PubConstance.DATA_TYPE_MAPPING_RELATION.get(columnInfoFromDB.getDataType())).append(" ")
+		.append("(").append(PubConstance.getMapping(driverType).get(columnInfoFromDB.getDataType())).append(" ")
 		.append(_column_Small_Hump)
 		.append(") {");
 		bw.newLine();
@@ -257,9 +264,9 @@ public class Builder {
 	 * @param _column_Small_Hump
 	 * @throws IOException
 	 */
-	private static void buildGetter(BufferedWriter bw ,ColumnInfoFromDB columnInfoFromDB, String _column_Hump, String _column_Small_Hump)
+	private static void buildGetter(BufferedWriter bw ,ColumnInfoFromDB columnInfoFromDB, String driverType, String _column_Hump, String _column_Small_Hump)
 			throws IOException {
-		bw.append(PubConstance.SPACE_CHARACTER).append("public ").append(PubConstance.DATA_TYPE_MAPPING_RELATION.get(columnInfoFromDB.getDataType()))
+		bw.append(PubConstance.SPACE_CHARACTER).append("public ").append(PubConstance.getMapping(driverType).get(columnInfoFromDB.getDataType()))
 		.append(" ").append("get")
 		.append(_column_Hump)
 		.append("() {");
@@ -292,12 +299,12 @@ public class Builder {
 	 * @param columnInfoFromDBs
 	 * @throws IOException
 	 */
-	private static void buildAttributes(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs) throws IOException {
+	private static void buildAttributes(BufferedWriter bw , List<ColumnInfoFromDB> columnInfoFromDBs,String driverType) throws IOException {
 		for (ColumnInfoFromDB columnInfoFromDB : columnInfoFromDBs) {
 			bw.append(PubConstance.SPACE_CHARACTER).append("/** "+columnInfoFromDB.getComments()+" */");
 			bw.newLine();
 			bw.append(PubConstance.SPACE_CHARACTER).append("private").append(" ")
-			.append(PubConstance.DATA_TYPE_MAPPING_RELATION.get(columnInfoFromDB.getDataType())).append(" ")
+			.append(PubConstance.getMapping(driverType).get(columnInfoFromDB.getDataType())).append(" ")
 			.append(StringFormat.UnderlineToSmallHump(columnInfoFromDB.getColumnName())).append(";");
 			bw.newLine();
 			bw.newLine();
