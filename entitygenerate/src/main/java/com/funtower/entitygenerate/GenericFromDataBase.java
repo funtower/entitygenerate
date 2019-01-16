@@ -32,9 +32,8 @@ public class GenericFromDataBase {
 		BufferedWriter bw = null;
 		Connection conn = null;
 		try {
-			FileReader fr = new FileReader("E:/gitrepository/entitygenerate/src/main/resources/datasource_mysql.properties");
-			properties.load(fr);
-			fr.close();
+			//读取配置文件获取
+			loadDbInfo(properties);
 			String driverType = properties.getProperty("driverType");
 			String driverName = properties.getProperty("driverName");
 			String url = properties.getProperty("url");
@@ -43,13 +42,12 @@ public class GenericFromDataBase {
 			String tableName = properties.getProperty("tableName");
 			
 			// 1.注册驱动
-//		Class.forName("oracle.jdbc.driver.OracleDriver");
 			Class.forName(driverName);
 			// 2.获取数据库连接对象 导包选择java.sql
-//		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@110.80.17.26:52521:orcl", "jxyp", "jxyp");
 			conn = DriverManager.getConnection(url, username, password);
 			log.debug(conn.toString());
 			// 3.创建sql语句执行对象
+//			conn.prepareStatement(sql)
 			Statement stat = conn.createStatement();
 			String querySql = PubConstance.getSql(tableName,driverType);
 			ResultSet rs = stat.executeQuery(querySql);
@@ -89,6 +87,12 @@ public class GenericFromDataBase {
 				e.printStackTrace();
 			}
 		}
+	}
+	private static void loadDbInfo(Properties properties) throws FileNotFoundException, IOException {
+//		FileReader fr = new FileReader("E:/gitrepository/entitygenerate/src/main/resources/datasource_mysql.properties");
+		FileReader fr = new FileReader("E:/gitrepository/entitygenerate/src/main/resources/datasource_oracle.properties");
+		properties.load(fr);
+		fr.close();
 	}
 
 }
